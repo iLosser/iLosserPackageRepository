@@ -19,3 +19,7 @@ This function changes a string to snake_case by:
 \item spaces become underscrores
 }
 }
+\examples{
+TooSnake("a /CoLuMn /NaMe")
+# returns: "a_column_name"
+}

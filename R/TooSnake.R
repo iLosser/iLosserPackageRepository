@@ -5,8 +5,8 @@
 #' - spaces become underscrores
 #' @param string A string to be converted to snake_case.
 #' @return A string in snake_case format.
-#' @examples
 #' @export
+#' @examples
 #' TooSnake("a /CoLuMn /NaMe")
 #' # returns: "a_column_name"
 TooSnake <- function(string) {
