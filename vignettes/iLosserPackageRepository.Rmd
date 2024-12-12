@@ -1,0 +1,78 @@
+---
+title: "iLosserPackageRepository"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{iLosserPackageRepository}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(iLosserPackageRepository)
+
+#dependencies 
+
+library(ggplot2)
+```
+  
+## TooSnake
+
+TooSnake is a function to transform any type of text to snake case. This process is a widely considered good practice. 
+
+```{r}
+# using the first few lines of the bee movie script as an example
+TooSnake("There is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground.")
+
+```
+
+output:
+[1] "there_is_no_way_a_bee_should_be_able_to_fly_its_wings_are_too_small_to_get_its_fat_little_body_off_the_ground_"  
+  
+  
+  
+## ColSnake
+ColSnake is a way of converting column names to Snake case. Useful when needing to use the column name in a data analysis in R.
+
+
+```{r}
+df <- data.frame(
+  "First Name" = c("Alice", "Bob", "Charlie"),
+  "Last.Name" = c("Smith", "Johnson", "Williams"),
+  "User ID" = c(101, 102, 103),
+  check.names = FALSE # Allows spaces and special characters in column names
+)
+
+# Create a comma-separated string of column names
+colnames_first_array <- paste(colnames(df), collapse = ", ")
+colnames_colsnake_array <- paste(colnames(ColSnake(df)), collapse = ", ")
+paste("The first set of colnames: ", colnames_array)
+paste("The ColSnake edited set of colnames: ", colnames_colsnake_array)
+
+
+
+
+
+```
+
+output:
+[1] "The first set of colnames:  First Name, Last.Name, User ID"
+[1] "The ColSnake edited set of colnames:  first_name, last_name, user_id"
+
+
+## theme_GGreen
+theme_GGreen is an extension [based on the argitecture] of the ggplot package. This function will effect the colour of the graphs to a classic Snake [the game] type of green.
+
+```{r}
+```
+
+
+```{r}
+```
+
