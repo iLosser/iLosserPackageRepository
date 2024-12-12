@@ -20,6 +20,7 @@ library(iLosserPackageRepository)
 #dependencies 
 
 library(ggplot2)
+library(tidyverse)
 ```
   
 ## TooSnake
@@ -52,7 +53,7 @@ df <- data.frame(
 # Create a comma-separated string of column names
 colnames_first_array <- paste(colnames(df), collapse = ", ")
 colnames_colsnake_array <- paste(colnames(ColSnake(df)), collapse = ", ")
-paste("The first set of colnames: ", colnames_array)
+paste("The first set of colnames: ", colnames_first_array)
 paste("The ColSnake edited set of colnames: ", colnames_colsnake_array)
 
 
@@ -70,6 +71,21 @@ output:
 theme_GGreen is an extension [based on the argitecture] of the ggplot package. This function will effect the colour of the graphs to a classic Snake [the game] type of green.
 
 ```{r}
+data(mtcars)
+
+p <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(
+    title = "Fuel Effic. by lbs",
+    subtitle = "Grouped by Number of Cylinders",
+    x = "Weight (1000 lbs)",
+    y = "Miles per Gallon (mpg)",
+    color = "Cylinders"
+  ) +
+  theme_GGreen()
+
+print(p)
+
 ```
 
 
