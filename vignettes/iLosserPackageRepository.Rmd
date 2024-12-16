@@ -20,7 +20,7 @@ library(iLosserPackageRepository)
 #dependencies 
 
 library(ggplot2)
-library(tidyverse)
+
 ```
   
 ## TooSnake
@@ -88,7 +88,14 @@ print(p)
 
 ```
 
+## RowSnake
+RowSnake is a function to transform RowNames into snake_case. Usefull for possible filtering.
 
 ```{r}
+ df <- data.frame("Column One" = 1:2, "Column Two" = 3:4)
+  rownames(df) <- c("Row@ One", "Row# Two")
+  df_snake <- RowSnake(df)
+
+df_snake
 ```
 
