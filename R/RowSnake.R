@@ -11,9 +11,8 @@
 #' # Returns a data frame with row names "row_one", "row_two", and "row_three".
 RowSnake <- function(df) {
   if (!is.data.frame(df)) {
-    stop("input must be a data frame")
+    stop("Input must be a data frame.")  
   }
   rownames(df) <- TooSnake(rownames(df))
   return(df)
 }
-

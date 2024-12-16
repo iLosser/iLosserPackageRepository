@@ -29,3 +29,42 @@ test_that("ColSnake works correctly", {
 
 })
 
+#####
+
+
+test_that("RowSnake converts simple row names to snake_case", {
+  df <- data.frame("Column One" = 1:3, "Column Two" = 4:6)
+  rownames(df) <- c("Row One", "Row Two", "Row Three")
+  df_snake <- RowSnake(df)
+  
+  expect_equal(rownames(df_snake), c("row_one", "row_two", "row_three"))
+})
+
+test_that("RowSnake handles row names with special characters", {
+  df <- data.frame("Column One" = 1:2, "Column Two" = 3:4)
+  rownames(df) <- c("Row@ One!", "Row# Two?")
+  df_snake <- RowSnake(df)
+  
+  expect_equal(rownames(df_snake), c("row_one_", "row_two_"))
+})
+
+test_that("RowSnake handles row names with multiple spaces", {
+  df <- data.frame("Column One" = 1:2, "Column Two" = 3:4)
+  rownames(df) <- c("  Row    One  ", "   Another   Row ")
+  df_snake <- RowSnake(df)
+  
+  expect_equal(rownames(df_snake), c("_row_one_", "_another_row_"))
+})
+
+test_that("RowSnake works with an empty data frame", {
+  df <- data.frame()
+  rownames(df) <- character(0)
+  df_snake <- RowSnake(df)
+  
+  expect_equal(rownames(df_snake), character(0))
+})
+
+test_that("RowSnake throws an error if input is not a data frame", {
+  expect_error(RowSnake("not a data frame"), "Input must be a data frame.")
+})
+
