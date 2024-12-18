@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("FF", "R", , "FFr@example.com", role = c("aut", "cre"),
            comment = c(ORCID = "0123-4567-8910"))
-Description: Personal open access package. TooSnake converts string to snake_case. ColSnake converts column names to snake_case using TooSnake.
+Description: Personal open access package. TooSnake converts string to snake_case. ColSnake converts column names to snake_case using TooSnake. RowSnake uses TooSnake to rename the rows in a df to snakecase. theme_GGreen is a snake the game themed ggplot2 extention.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
